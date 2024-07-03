@@ -50,6 +50,7 @@ export const loginController = async (req, res, next) => {
         .status(200)
         .cookie("USER_TOKEN", jwtToken, {
           expires: new Date(Date.now() + 1000 * 60 * 60),
+          sameSite: 'None'
         })
         .json({
           type: SUCCESS,
@@ -112,6 +113,7 @@ export const signupController = async (req, res, next) => {
           .status(200)
           .cookie("USER_TOKEN", jwtToken, {
             expires: new Date(Date.now() + 1000 * 60 * 60),
+            sameSite: 'None'
           })
           .json({
             type: SUCCESS,
